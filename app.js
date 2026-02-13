@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Click Handler
-    const heroSection = document.querySelector('.hero');
+    const heroSection = document.getElementById('hero-trigger');
     
     if (heroSection) {
         heroSection.addEventListener('click', () => {
-            // Ensure you have a login.html page, or change this link
+            // Redirects specifically to your local login page
             window.location.href = 'login.html'; 
         });
     }
