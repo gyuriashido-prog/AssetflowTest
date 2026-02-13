@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AssetFlow | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -10,24 +10,28 @@
 </head>
 <body>
 
-<div class="home-container">
+<div class="container home-wrapper">
     <nav>
         <div class="logo">
-            <a href="index.html" style="text-decoration: none; color: inherit;">
+            <a href="index.html">
                 <div class="logo-box">AF</div>
             </a>
         </div>
-        <div class="menu">
+        <div class="menu desktop-only">
             <a href="#">Features</a>
             <a href="#">Assets</a>
-            <a href="login.html" style="color: #64ffda;">Login</a>
+            <a href="login.html" class="accent-text">Login</a>
+        </div>
+        <div class="menu mobile-only">
+            <a href="login.html" class="accent-text">Log In</a>
         </div>
     </nav>
 
-    <main class="hero" id="hero-trigger" style="cursor: pointer;">
+    <main class="hero" id="hero-trigger">
         <p class="fade-in small-tag">BEYOND WAREHOUSING</p>
         <h1 class="fade-in main-title">ASSETFLOW</h1>
         <p class="fade-in subtitle">Track. Manage. Scale.</p>
+        <div class="tap-hint mobile-only fade-in">(Tap to Enter)</div>
     </main>
 
     <div class="bottom-left">
@@ -38,7 +42,7 @@
         </div>
     </div>
 
-    <div class="bottom-right">
+    <div class="bottom-right desktop-only">
         <div class="scroll-indicator">
             <span>Sequence</span>
             <div class="line"></div>
