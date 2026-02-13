@@ -1,19 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Reveal Animation
+    
+    // 1. Handle the Fade-in Animation
     const elements = document.querySelectorAll('.fade-in');
     
-    // Stagger the animation for each element
     elements.forEach((el, index) => {
+        // We use setTimeout to create a delay between each item
         setTimeout(() => {
             el.classList.add('visible');
-        }, index * 300); // 300ms delay between each item
+        }, index * 300); // 300ms delay multiplied by the index (0ms, 300ms, 600ms...)
     });
 
-    // Click handler for Hero section
+    // 2. Handle the Click on the Hero Section
     const heroSection = document.querySelector('.hero');
+    
     if (heroSection) {
         heroSection.addEventListener('click', () => {
-            // Ensure this file exists in your repo, or change to full URL
+            // Navigate to login.html
+            // Make sure you have a file named 'login.html' in your folder!
             window.location.href = 'login.html'; 
         });
     }
