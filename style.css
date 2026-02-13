@@ -189,3 +189,70 @@ nav {
 .small-tag { animation-delay: 0.2s; }
 .main-title { animation-delay: 0.5s; }
 .subtitle { animation-delay: 0.8s; }
+
+/* --- GLOBAL SETTINGS --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0f1014;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* --- LOGIN PAGE STYLES --- */
+.logo-container { margin-bottom: 2rem; }
+.logo-box {
+    width: 60px; height: 60px; border: 2px solid #ffffff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 1.2rem; letter-spacing: 2px;
+    transition: all 0.3s ease; margin: 0 auto;
+}
+.logo-box:hover { background: #fff; color: #000; box-shadow: 0 0 15px rgba(255,255,255,0.5); }
+
+.main-container { width: 100%; display: flex; justify-content: center; padding: 20px; }
+.login-card {
+    background: #1a1c23; padding: 3rem; width: 100%; max-width: 400px;
+    border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid #2a2d35;
+}
+
+.fade-in { animation: fadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.small-tag { font-size: 0.7rem; letter-spacing: 3px; color: #64ffda; font-weight: 700; margin-bottom: 0.5rem; display: block; }
+.main-title-small { font-size: 1.5rem; font-weight: 300; margin-bottom: 2rem; letter-spacing: 1px; }
+
+.input-group { margin-bottom: 1.2rem; }
+input {
+    width: 100%; padding: 15px; background: #0f1014;
+    border: 1px solid #2a2d35; color: #fff;
+    font-family: 'Montserrat', sans-serif; font-size: 0.9rem; transition: 0.3s;
+}
+input:focus { outline: none; border-color: #64ffda; }
+
+.login-button {
+    width: 100%; padding: 15px; background: #ffffff; color: #000;
+    border: none; font-weight: 900; letter-spacing: 1px; cursor: pointer;
+    margin-top: 1rem; font-family: 'Montserrat', sans-serif; transition: 0.3s;
+}
+.login-button:hover { background: #64ffda; transform: translateY(-2px); }
+
+.form-footer { margin-top: 2rem; display: flex; justify-content: space-between; font-size: 0.8rem; }
+.form-footer a { color: #8892b0; text-decoration: none; transition: 0.3s; }
+.form-footer a:hover { color: #64ffda; }
+
+/* --- MAIN PAGE SPECIFIC STYLES --- */
+.hero-title { font-size: 3rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 1rem; }
+.hero-subtitle { color: #8892b0; margin-bottom: 2rem; }
+.enter-btn {
+    padding: 15px 40px; border: 1px solid #64ffda; background: transparent;
+    color: #64ffda; font-family: 'Montserrat', sans-serif; font-weight: 700;
+    cursor: pointer; transition: 0.3s; letter-spacing: 2px;
+}
+.enter-btn:hover { background: #64ffda; color: #0f1014; box-shadow: 0 0 20px rgba(100, 255, 218, 0.4); }
