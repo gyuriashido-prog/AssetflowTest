@@ -79,11 +79,11 @@ nav {
     position: relative;
 }
 
+/* Note: Removed default opacity here so the animation controls it */
 .small-tag {
     font-size: 12px;
     letter-spacing: 4px;
     margin-bottom: 20px;
-    opacity: 0.6;
     text-transform: uppercase;
 }
 
@@ -100,7 +100,6 @@ nav {
     font-size: 14px;
     letter-spacing: 6px;
     margin-top: 20px;
-    opacity: 0.5;
     text-transform: uppercase;
 }
 
@@ -168,16 +167,17 @@ nav {
     .bottom-right { right: 20px; }
 }
 
-/* ANIMATION STYLES 
-   These are placed at the end to ensure they override other styles.
-*/
+/* --- ANIMATION FIXED --- */
+/* We use !important here to force the element to hide initially.
+   This overrides any other CSS that tries to show it. */
 .fade-in {
-    opacity: 0; /* Hidden by default */
-    transform: translateY(20px); /* Moved down slightly */
+    opacity: 0 !important;
+    transform: translateY(20px);
     transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
+/* When the JS adds 'visible', this forces it to show */
 .fade-in.visible {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Back to original position */
+    opacity: 1 !important;
+    transform: translateY(0);
 }
