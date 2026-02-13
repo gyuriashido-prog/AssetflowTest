@@ -106,55 +106,116 @@ nav {
 .subtitle { animation-delay: 0.6s; }
 
 /* =========================================
-   3. LOGIN PAGE STYLES
+   3. LOGIN CARD STYLES
    ========================================= */
-/* Wrapper for Login Page */
 .login-wrapper {
-    width: 100%; display: flex; justify-content: center; align-items: center;
-    flex-direction: column;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-card {
-    background: #1a1c23; padding: 3rem; width: 100%; max-width: 400px;
-    border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    background: #16171d; /* Slightly lighter than body for depth */
+    padding: 3.5rem; 
+    width: 100%; 
+    max-width: 420px;
+    border-radius: 4px; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
     border: 1px solid #2a2d35;
     text-align: center;
 }
 
-.login-card .small-tag {
-    font-size: 0.7rem; letter-spacing: 3px; color: #64ffda;
-    font-weight: 700; margin-bottom: 0.5rem; display: block;
+.small-tag {
+    font-size: 0.7rem; 
+    letter-spacing: 4px; 
+    color: #64ffda; /* Teal accent from your code */
+    font-weight: 700; 
+    margin-bottom: 0.8rem; 
+    display: block;
+    text-transform: uppercase;
 }
 
 .main-title-small {
-    font-size: 1.5rem; font-weight: 300; margin-bottom: 2rem; letter-spacing: 1px;
+    font-size: 1.6rem; 
+    font-weight: 400; 
+    margin-bottom: 2.5rem; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.input-group { margin-bottom: 1.2rem; }
-input {
-    width: 100%; padding: 15px; background: #0f1014;
-    border: 1px solid #2a2d35; color: #fff;
-    font-family: 'Montserrat', sans-serif; font-size: 0.9rem; transition: 0.3s;
+/* Form Elements */
+.input-group { 
+    margin-bottom: 1.2rem; 
 }
-input:focus { outline: none; border-color: #64ffda; }
+
+input {
+    width: 100%; 
+    padding: 18px; 
+    background: #0a0b0e;
+    border: 1px solid #2a2d35; 
+    color: #fff;
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 0.9rem; 
+    transition: border-color 0.3s;
+}
+
+input:focus { 
+    outline: none; 
+    border-color: #ffffff; /* Focused border goes white */
+}
 
 .login-button {
-    width: 100%; padding: 15px; background: #ffffff; color: #000;
-    border: none; font-weight: 900; letter-spacing: 1px; cursor: pointer;
-    margin-top: 1rem; font-family: 'Montserrat', sans-serif; transition: 0.3s;
+    width: 100%; 
+    padding: 18px; 
+    background: #ffffff; 
+    color: #000;
+    border: none; 
+    font-weight: 900; 
+    letter-spacing: 2px; 
+    cursor: pointer;
+    margin-top: 1rem; 
+    font-family: 'Montserrat', sans-serif; 
+    transition: transform 0.2s, background-color 0.3s;
+    text-transform: uppercase;
 }
-.login-button:hover { background: #64ffda; transform: translateY(-2px); }
 
+.login-button:hover { 
+    background: #e0e0e0;
+    transform: translateY(-2px); 
+}
+
+/* Footer Links */
 .form-footer {
-    margin-top: 2rem; display: flex; justify-content: space-between; font-size: 0.8rem;
+    margin-top: 2.5rem; 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 0.75rem;
 }
-.form-footer a { color: #8892b0; text-decoration: none; transition: 0.3s; }
-.form-footer a:hover { color: #64ffda; }
 
-/* Responsive adjustments */
+.form-footer a { 
+    color: #8892b0; 
+    text-decoration: none; 
+    transition: color 0.3s; 
+}
+
+.form-footer a:hover { 
+    color: #ffffff; 
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .main-title { font-size: 50px; }
-    nav { left: 20px; right: 20px; }
-    .bottom-left { left: 20px; }
-    .bottom-right { right: 20px; }
+    .top-left-logo {
+        top: 25px;
+        left: 25px;
+    }
+    .logo-box {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .login-card {
+        margin: 20px;
+        padding: 2rem;
+    }
 }
