@@ -38,6 +38,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
 }
 
 .logo-box {
@@ -75,6 +76,7 @@ nav {
 .hero {
     text-align: center;
     z-index: 2;
+    position: relative;
 }
 
 .small-tag {
@@ -107,6 +109,7 @@ nav {
     position: absolute;
     bottom: 40px;
     left: 50px;
+    z-index: 10;
 }
 
 .social-icons {
@@ -131,6 +134,7 @@ nav {
     position: absolute;
     bottom: 50px;
     right: 50px;
+    z-index: 10;
 }
 
 .scroll-indicator {
@@ -155,18 +159,6 @@ nav {
     opacity: 0.3;
 }
 
-/* Animation Start State */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1.5s ease, transform 1.5s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .main-title { font-size: 60px; }
@@ -174,4 +166,18 @@ nav {
     nav { left: 20px; right: 20px; }
     .bottom-left { left: 20px; }
     .bottom-right { right: 20px; }
+}
+
+/* ANIMATION STYLES 
+   These are placed at the end to ensure they override other styles.
+*/
+.fade-in {
+    opacity: 0; /* Hidden by default */
+    transform: translateY(20px); /* Moved down slightly */
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Back to original position */
 }
