@@ -1,6 +1,174 @@
-/* --- COPY THIS TO THE BOTTOM OF style.css --- */
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* 1. Define the Animation */
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Card Container */
+.main-container {
+    width: 90%;
+    height: 90%;
+    background: #0f0f0f;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navigation */
+nav {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo-box {
+    font-weight: 900;
+    font-size: 24px;
+    border: 2px solid white;
+    padding: 5px 10px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.logo-box:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-left: 30px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.menu a:hover {
+    opacity: 1;
+}
+
+/* Hero Typography */
+.hero {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.small-tag {
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.main-title {
+    font-size: 120px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.subtitle {
+    font-size: 14px;
+    letter-spacing: 6px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+/* Bottom Elements */
+.bottom-left {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    z-index: 10;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 14px;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    z-index: 10;
+}
+
+.scroll-indicator {
+    display: flex;
+    align-items: center;
+    transform: rotate(90deg);
+    transform-origin: right bottom;
+}
+
+.scroll-indicator span {
+    font-size: 10px;
+    letter-spacing: 3px;
+    opacity: 0.5;
+    margin-right: 15px;
+    text-transform: uppercase;
+}
+
+.scroll-indicator .line {
+    width: 30px;
+    height: 1px;
+    background: white;
+    opacity: 0.3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-title { font-size: 60px; }
+    .main-container { width: 100%; height: 100%; }
+    nav { left: 20px; right: 20px; }
+    .bottom-left { left: 20px; }
+    .bottom-right { right: 20px; }
+}
+
+/* --- THE FIX: CSS KEYFRAME ANIMATION --- */
+/* This forces the text to appear even if JavaScript fails */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -12,22 +180,12 @@
     }
 }
 
-/* 2. Apply it to the elements */
 .fade-in {
     opacity: 0; /* Start hidden */
-    /* Run the animation for 1.5 seconds, then stop at the 'to' state */
-    animation: fadeInUp 1.5s ease forwards;
+    animation: fadeInUp 1.5s ease forwards; /* Animate to visible */
 }
 
-/* 3. Add delays so they appear one by one */
-.small-tag {
-    animation-delay: 0.2s;
-}
-
-.main-title {
-    animation-delay: 0.5s;
-}
-
-.subtitle {
-    animation-delay: 0.8s;
-}
+/* Stagger delays so they don't appear all at once */
+.small-tag { animation-delay: 0.2s; }
+.main-title { animation-delay: 0.5s; }
+.subtitle { animation-delay: 0.8s; }
