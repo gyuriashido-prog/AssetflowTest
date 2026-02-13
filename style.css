@@ -8,153 +8,175 @@
 }
 
 body {
-    background-color: #0f1014; /* Unified dark background */
+    background-color: #0f1014; /* Deep dark background */
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
-    overflow: hidden; /* Keeps the page clean */
+    width: 100vw;
+    overflow: hidden; 
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-/* SHARED ANIMATION (Fixed) */
+/* Animations */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in {
-    opacity: 0; /* Start hidden */
-    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; /* "forwards" keeps it visible! */
-}
-
-/* Shared Logo Style */
-.logo-box {
-    width: 60px; height: 60px;
-    border: 2px solid white;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 900; font-size: 24px; letter-spacing: 2px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    color: inherit;
-}
-.logo-box:hover {
-    background-color: #fff;
-    color: #000;
-    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    opacity: 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 /* =========================================
-   2. HOME PAGE (INDEX) STYLES
+   2. THE LOGO (INDEX STYLE)
    ========================================= */
-/* Specific wrapper for Home Page to avoid conflict */
-.home-container {
-    width: 100%; height: 100%;
-    position: relative;
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
+.top-left-logo {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    z-index: 100;
 }
 
-nav {
-    position: absolute; top: 40px; left: 50px; right: 50px;
-    display: flex; justify-content: space-between; align-items: center; z-index: 10;
+.logo-link {
+    text-decoration: none;
+    color: #ffffff !important; /* Forces white text, overrides blue link defaults */
 }
 
-.menu a {
-    color: #fff; text-decoration: none; font-size: 12px;
-    letter-spacing: 2px; margin-left: 30px; text-transform: uppercase;
-    opacity: 0.7; transition: opacity 0.3s;
-}
-.menu a:hover { opacity: 1; color: #64ffda; }
-
-.hero { text-align: center; z-index: 2; position: relative; }
-
-.hero .small-tag {
-    font-size: 12px; letter-spacing: 4px; margin-bottom: 20px;
-    text-transform: uppercase; display: block;
-}
-
-.main-title {
-    font-size: 100px; /* Adjusted for better fit */
-    font-weight: 900; letter-spacing: -2px; margin: 0;
-    text-transform: uppercase; text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.logo-box {
+    width: 60px; 
+    height: 60px;
+    border: 2px solid #ffffff; /* White Border */
+    background-color: transparent; /* Black/Dark Background */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-weight: 900; 
+    font-size: 24px; 
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.subtitle {
-    font-size: 14px; letter-spacing: 6px; margin-top: 20px; text-transform: uppercase;
+/* Hover effect from the Index page */
+.logo-box:hover {
+    background-color: #ffffff;
+    color: #000000 !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
-
-/* Bottom Corners */
-.bottom-left { position: absolute; bottom: 40px; left: 50px; z-index: 10; }
-.bottom-right { position: absolute; bottom: 50px; right: 50px; z-index: 10; }
-
-.social-icons { display: flex; flex-direction: column; gap: 15px; }
-.social-icons a { color: white; opacity: 0.5; transition: 0.3s; }
-.social-icons a:hover { opacity: 1; }
-
-.scroll-indicator {
-    display: flex; align-items: center;
-    transform: rotate(90deg); transform-origin: right bottom;
-}
-.scroll-indicator span { font-size: 10px; letter-spacing: 3px; opacity: 0.5; margin-right: 15px; text-transform: uppercase; }
-.scroll-indicator .line { width: 30px; height: 1px; background: white; opacity: 0.3; }
-
-/* Staggered Animation Delays */
-.hero .small-tag { animation-delay: 0.2s; }
-.main-title { animation-delay: 0.4s; }
-.subtitle { animation-delay: 0.6s; }
 
 /* =========================================
    3. LOGIN PAGE STYLES
    ========================================= */
-/* Wrapper for Login Page */
 .login-wrapper {
-    width: 100%; display: flex; justify-content: center; align-items: center;
-    flex-direction: column;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-card {
-    background: #1a1c23; padding: 3rem; width: 100%; max-width: 400px;
-    border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    background: #1a1c23; 
+    padding: 3rem; 
+    width: 100%; 
+    max-width: 400px;
+    border-radius: 4px; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     border: 1px solid #2a2d35;
     text-align: center;
 }
 
 .login-card .small-tag {
-    font-size: 0.7rem; letter-spacing: 3px; color: #64ffda;
-    font-weight: 700; margin-bottom: 0.5rem; display: block;
+    font-size: 0.7rem; 
+    letter-spacing: 3px; 
+    color: #64ffda; /* Teal accent */
+    font-weight: 700; 
+    margin-bottom: 0.5rem; 
+    display: block;
+    text-transform: uppercase;
 }
 
 .main-title-small {
-    font-size: 1.5rem; font-weight: 300; margin-bottom: 2rem; letter-spacing: 1px;
+    font-size: 1.5rem; 
+    font-weight: 400; 
+    margin-bottom: 2rem; 
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.input-group { margin-bottom: 1.2rem; }
-input {
-    width: 100%; padding: 15px; background: #0f1014;
-    border: 1px solid #2a2d35; color: #fff;
-    font-family: 'Montserrat', sans-serif; font-size: 0.9rem; transition: 0.3s;
+.input-group { 
+    margin-bottom: 1.2rem; 
 }
-input:focus { outline: none; border-color: #64ffda; }
+
+input {
+    width: 100%; 
+    padding: 15px; 
+    background: #0f1014;
+    border: 1px solid #2a2d35; 
+    color: #fff;
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 0.9rem; 
+    transition: 0.3s;
+}
+
+input:focus { 
+    outline: none; 
+    border-color: #64ffda; 
+}
 
 .login-button {
-    width: 100%; padding: 15px; background: #ffffff; color: #000;
-    border: none; font-weight: 900; letter-spacing: 1px; cursor: pointer;
-    margin-top: 1rem; font-family: 'Montserrat', sans-serif; transition: 0.3s;
+    width: 100%; 
+    padding: 15px; 
+    background: #ffffff; 
+    color: #000;
+    border: none; 
+    font-weight: 900; 
+    letter-spacing: 1px; 
+    cursor: pointer;
+    margin-top: 1rem; 
+    font-family: 'Montserrat', sans-serif; 
+    transition: 0.3s;
+    text-transform: uppercase;
 }
-.login-button:hover { background: #64ffda; transform: translateY(-2px); }
+
+.login-button:hover { 
+    background: #64ffda; 
+    transform: translateY(-2px); 
+}
 
 .form-footer {
-    margin-top: 2rem; display: flex; justify-content: space-between; font-size: 0.8rem;
+    margin-top: 2rem; 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 0.8rem;
 }
-.form-footer a { color: #8892b0; text-decoration: none; transition: 0.3s; }
-.form-footer a:hover { color: #64ffda; }
+
+.form-footer a { 
+    color: #8892b0; 
+    text-decoration: none; 
+    transition: 0.3s; 
+}
+
+.form-footer a:hover { 
+    color: #64ffda; 
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .main-title { font-size: 50px; }
-    nav { left: 20px; right: 20px; }
-    .bottom-left { left: 20px; }
-    .bottom-right { right: 20px; }
+    .top-left-logo {
+        top: 20px;
+        left: 20px;
+    }
+    .logo-box {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .login-card {
+        margin: 20px;
+        padding: 2rem;
+    }
 }
