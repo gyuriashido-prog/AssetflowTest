@@ -1,23 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. ANIMATION LOGIC
-    const elements = document.querySelectorAll('.fade-in');
-    
-    if (elements.length > 0) {
-        elements.forEach((el, index) => {
-            // Stagger the animation: 0ms, 300ms, 600ms...
-            setTimeout(() => {
-                el.classList.add('visible');
-            }, index * 300);
-        });
-    }
+    // We removed the animation code from here because CSS handles it now.
+    // This is safer and prevents the "invisible text" bug.
 
-    // 2. CLICK LOGIC
     const heroSection = document.querySelector('.hero');
     
     if (heroSection) {
         heroSection.addEventListener('click', () => {
-            // Change 'login.html' to whatever page you want to open
+            // Ensure this file exists in your repository!
             window.location.href = 'login.html'; 
         });
     }
