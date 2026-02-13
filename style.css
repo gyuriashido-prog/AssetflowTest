@@ -13,16 +13,25 @@
     -webkit-tap-highlight-color: transparent; /* Removes blue tap box on Android/iOS */
 }
 
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling to anchor tags */
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-white);
     font-family: 'Montserrat', sans-serif;
-    /* Mobile Viewport Fix */
+    
+    /* CHANGED: Allow vertical scrolling for the Features section */
     height: 100vh; 
     height: calc(var(--vh, 1vh) * 100);
-    overflow: hidden; 
-    display: flex; justify-content: center; align-items: center;
-    position: fixed; width: 100%;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    
+    /* CHANGED: display: block allows sections to stack (Hero -> Features) */
+    display: block; 
+    position: relative; 
+    width: 100%;
 }
 
 /* =========================================
@@ -51,10 +60,15 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 }
 
 /* =========================================
-   3. HOME PAGE STYLES
+   3. HOME PAGE (HERO) STYLES
    ========================================= */
 .container {
-    width: 100%; height: 100%;
+    width: 100%; 
+    /* CHANGED: min-height ensures it fills the screen but pushes features down */
+    min-height: 100vh; 
+    height: 100vh; /* Fallback for older browsers */
+    height: calc(var(--vh, 1vh) * 100); /* Mobile fix */
+    
     position: relative;
     display: flex; flex-direction: column;
     justify-content: center; align-items: center;
@@ -109,7 +123,66 @@ nav {
 .scroll-indicator .line { width: 30px; height: 1px; background: white; opacity: 0.3; }
 
 /* =========================================
-   4. LOGIN CARD STYLES
+   4. NEW: FEATURES SECTION STYLES
+   ========================================= */
+.features-section {
+    padding: 100px 20px;
+    background-color: #0f1014; /* Matches body bg */
+    position: relative;
+    z-index: 5;
+}
+
+.section-header { text-align: center; margin-bottom: 60px; }
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Grid Layout */
+.features-grid {
+    display: grid;
+    /* Auto-fit creates responsive columns (min width 280px) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Feature Card */
+.feature-card {
+    background: #16171d;
+    padding: 40px 30px;
+    border: 1px solid #2a2d35;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem; color: var(--accent-color); margin-bottom: 25px;
+}
+
+.feature-title {
+    font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; margin-bottom: 15px; color: #fff;
+}
+
+.feature-desc {
+    font-size: 0.9rem; line-height: 1.6; color: #8892b0;
+}
+
+/* =========================================
+   5. LOGIN CARD STYLES
    ========================================= */
 .login-card {
     background: #16171d;
@@ -148,7 +221,7 @@ input:focus { border-color: #fff; outline: none; }
 .form-footer a { color: #8892b0; }
 
 /* =========================================
-   5. MOBILE RESPONSIVE TWEAKS
+   6. MOBILE RESPONSIVE TWEAKS
    ========================================= */
 .mobile-only { display: none; }
 
@@ -160,6 +233,10 @@ input:focus { border-color: #fff; outline: none; }
     nav { top: 20px; left: 20px; right: 20px; }
     .bottom-left { bottom: 20px; left: 20px; }
     
-    .social-icons { flex-direction: row; } /* Horizontal icons on mobile */
+    .social-icons { flex-direction: row; } 
     .login-card { padding: 2rem 1.5rem; }
+
+    /* Feature Section Mobile Adjustments */
+    .features-section { padding: 60px 20px; }
+    .feature-card { padding: 30px 20px; }
 }
