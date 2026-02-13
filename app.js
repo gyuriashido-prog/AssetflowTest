@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 const heroSection = document.querySelector('.hero');
 
-heroSection.addEventListener('click', () => {
+heroSection.addEventListener('click', () => { 
     // Replace 'login.html' with the actual URL or filename
     window.location.href = 'login.html';
 });
