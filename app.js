@@ -1,6 +1,5 @@
-// This script adds a simple "reveal" animation when the page loads
 document.addEventListener("DOMContentLoaded", () => {
-    
+    // Reveal Animation
     const elements = document.querySelectorAll('.fade-in');
     
     // Stagger the animation for each element
@@ -9,10 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
             el.classList.add('visible');
         }, index * 300); // 300ms delay between each item
     });
-});
-const heroSection = document.querySelector('.hero');
 
-heroSection.addEventListener('click', () => { 
-    // Replace 'login.html' with the actual URL or filename
-    window.location.href = 'login.html';
+    // Click handler for Hero section
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        heroSection.addEventListener('click', () => {
+            // Ensure this file exists in your repo, or change to full URL
+            window.location.href = 'login.html'; 
+        });
+    }
 });
