@@ -1,25 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Logic for Index -> Login (Hero Click)
+    
+    // 1. MOBILE VIEWPORT HEIGHT FIX
+    // This fixes the issue where the URL bar covers the bottom of your app
+    const setAppHeight = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    // Run on load and on resize
+    window.addEventListener('resize', setAppHeight);
+    setAppHeight();
+
+
+    // 2. HERO INTERACTION (Index -> Login)
     const heroSection = document.getElementById('hero-trigger');
+    
     if (heroSection) {
-        heroSection.style.cursor = 'pointer'; // Ensure cursor shows hand
         heroSection.addEventListener('click', () => {
-            window.location.href = 'login.html'; 
+            // Simple redirect
+            window.location.href = 'login.html';
         });
     }
 
-    // 2. Logic for Login -> Index (Card Click)
+
+    // 3. LOGIN CARD INTERACTION (Background Click -> Home)
+    const loginWrapper = document.querySelector('.login-wrapper');
     const loginCard = document.querySelector('.login-card');
-    if (loginCard) {
-        loginCard.style.cursor = 'pointer'; // Ensure cursor shows hand
-        loginCard.addEventListener('click', (e) => {
-            // Check if user clicked an input, button, or link
-            const isInput = e.target.closest('input, button, a');
+
+    // If we are on the login page...
+    if (loginWrapper && loginCard) {
+        
+        // Listen for clicks on the entire wrapper (the dark background)
+        loginWrapper.addEventListener('click', (e) => {
             
-            // If they clicked the background of the card (not a form field), go back
-            if (!isInput) {
-                window.location.href = 'index.html';
+            // If the click is INSIDE the card, do nothing (let them type)
+            if (loginCard.contains(e.target)) {
+                return;
             }
+
+            // If the click is OUTSIDE the card (on the background), go home
+            window.location.href = 'index.html';
         });
     }
 });
